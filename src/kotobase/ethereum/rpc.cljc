@@ -20,7 +20,7 @@
   No HTTP/socket concepts live here — `kotobase.ethereum.client` (.cljs
   only) is the transport that actually sends these requests over the
   wire and feeds results back through this namespace's decode fns."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ------------------------------------------------------------- whitelist
 
