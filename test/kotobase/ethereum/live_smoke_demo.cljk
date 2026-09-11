@@ -2,13 +2,13 @@
 ;; JSON-RPC calls against a real, free, public Ethereum testnet endpoint
 ;; (Sepolia, no API key required). Proves this repo's request-shaping,
 ;; transport, and decode logic actually round-trip against a live node,
-;; not just against the fixtures test/kotobase/ethereum/rpc_test.cljc
+;; not just against the fixtures test/kotobase/ethereum/rpc_test.cljk
 ;; captured from one earlier live session. NOT run by CI (network
 ;; availability/flakiness — same reason kotoba-lang/dtn's transport demos
-;; live outside bin/run_tests.cljs's deterministic suite); run manually:
+;; live outside bin/run_tests.cljk's deterministic suite); run manually:
 ;;
 ;;   nbb --classpath "src:test:<kotobase>/src:<kotobase-protocols>/src" \
-;;     test/kotobase/ethereum/live_smoke_demo.cljs
+;;     test/kotobase/ethereum/live_smoke_demo.cljk
 ;;
 ;; Optional: ETH_JSONRPC_ENDPOINT env var overrides the default public
 ;; endpoint (this repo bundles no credential — this demo's default is

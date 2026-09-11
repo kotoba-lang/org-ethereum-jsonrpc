@@ -3,7 +3,7 @@
   policy and enforcement, via an injected fake `:fetch-fn` (no real
   socket/HTTP I/O — safe to run in CI on every push, unlike a real-network
   smoke test). The real-network round-trip proof lives in
-  test/kotobase/ethereum/live_smoke_demo.cljs, run manually per its own
+  test/kotobase/ethereum/live_smoke_demo.cljk, run manually per its own
   docstring — same split this workspace's DTN/nostr repos use between
   deterministic unit suites and executable real-transport demos."
   (:require [cljs.test :refer [deftest is testing async]]
