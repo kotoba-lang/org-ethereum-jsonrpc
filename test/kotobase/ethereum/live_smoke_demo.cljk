@@ -7,7 +7,7 @@
 ;; availability/flakiness — same reason kotoba-lang/dtn's transport demos
 ;; live outside bin/run_tests.cljk's deterministic suite); run manually:
 ;;
-;;   nbb --classpath "src:test:<kotobase>/src:<kotobase-protocols>/src" \
+;;   kbb --backend sci --classpath "src:test:<kotobase>/src:<kotobase-protocols>/src" \
 ;;     test/kotobase/ethereum/live_smoke_demo.cljk
 ;;
 ;; Optional: ETH_JSONRPC_ENDPOINT env var overrides the default public

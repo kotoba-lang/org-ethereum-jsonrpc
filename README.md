@@ -129,7 +129,7 @@ First-class runtime is **nbb/cljs** (repo-wide runtime priority):
 ```bash
 git clone https://github.com/kotoba-lang/kotobase ../kotobase
 git clone https://github.com/kotoba-lang/kotobase-protocols ../kotobase-protocols
-nbb --classpath "src:test:../kotobase/src:../kotobase-protocols/src" bin/run_tests.cljk
+kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src" bin/run_tests.cljk
 ```
 
 `test/kotobase/ethereum/rpc_test.cljk` is pure-logic unit tests against
@@ -154,7 +154,7 @@ transport demos live outside its deterministic test suite); run it
 manually:
 
 ```bash
-nbb --classpath "src:test:../kotobase/src:../kotobase-protocols/src" \
+kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src" \
   test/kotobase/ethereum/live_smoke_demo.cljk
 ```
 
@@ -168,7 +168,7 @@ The `:test` alias in `deps.edn` is the JVM **compat** suite for
 Node-hosted `fetch`, so it isn't part of the JVM suite):
 
 ```bash
-clojure -X:test
+kbb -X:test
 ```
 
 ## License
