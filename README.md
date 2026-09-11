@@ -29,7 +29,7 @@ The method whitelist enforcing this (`kotobase.ethereum.rpc/eth-method-whitelist
 is **enforced in code**, not just documented: every request-building
 (`build-request`) and result-decoding (`decode-result`) entry point checks
 it and throws `ex-info` (`:type :kotobase.ethereum.rpc/disallowed-method`)
-for anything else — see `test/kotobase/ethereum/rpc_test.cljc`'s
+for anything else — see `test/kotobase/ethereum/rpc_test.cljk`'s
 `whitelist-rejects-out-of-scope-methods` test, which asserts the whitelist
 actually rejects `eth_sendTransaction`/`eth_sendRawTransaction`/`eth_sign`/
 `personal_*`/an arbitrary unknown method, not merely that this repo's own
@@ -51,8 +51,8 @@ rpc/eth-method-whitelist
 
 | Namespace | File | Shape |
 |---|---|---|
-| `kotobase.ethereum.rpc` | `src/kotobase/ethereum/rpc.cljc` | Pure JSON-RPC 2.0 request/response shaping, the whitelist, hex-quantity decode, block/transaction/log decode into clean EDN. No I/O. |
-| `kotobase.ethereum.client` | `src/kotobase/ethereum/client.cljs` | `.cljs`-only HTTP transport (Node's built-in `fetch`), caches observed data into a `kotobase.store/IStore`. |
+| `kotobase.ethereum.rpc` | `src/kotobase/ethereum/rpc.cljk` | Pure JSON-RPC 2.0 request/response shaping, the whitelist, hex-quantity decode, block/transaction/log decode into clean EDN. No I/O. |
+| `kotobase.ethereum.client` | `src/kotobase/ethereum/client.cljk` | `.cljs`-only HTTP transport (Node's built-in `fetch`), caches observed data into a `kotobase.store/IStore`. |
 
 Same core/transport split as every sibling repo in this project
 (`kotoba-lang/dtn`, `kotoba-lang/nostr`, `kotoba-lang/org-bitcoin-p2p`, ...):
@@ -129,22 +129,22 @@ First-class runtime is **nbb/cljs** (repo-wide runtime priority):
 ```bash
 git clone https://github.com/kotoba-lang/kotobase ../kotobase
 git clone https://github.com/kotoba-lang/kotobase-protocols ../kotobase-protocols
-nbb --classpath "src:test:../kotobase/src:../kotobase-protocols/src" bin/run_tests.cljs
+nbb --classpath "src:test:../kotobase/src:../kotobase-protocols/src" bin/run_tests.cljk
 ```
 
-`test/kotobase/ethereum/rpc_test.cljc` is pure-logic unit tests against
+`test/kotobase/ethereum/rpc_test.cljk` is pure-logic unit tests against
 **real fixture JSON** — every fixture in that file was captured live from a
 real, free, public Sepolia testnet JSON-RPC endpoint
 (`https://ethereum-sepolia-rpc.publicnode.com`, no API key), not
 hand-invented shapes; see the namespace docstring for exactly which calls
 were captured.
 
-`test/kotobase/ethereum/client_test.cljs` unit-tests
+`test/kotobase/ethereum/client_test.cljk` unit-tests
 `kotobase.ethereum.client`'s caching policy and whitelist enforcement
 against an **injected fake `:fetch-fn`** — deterministic, no real network
 I/O, safe to run on every CI push.
 
-`test/kotobase/ethereum/live_smoke_demo.cljs` is **not** a unit test — it's
+`test/kotobase/ethereum/live_smoke_demo.cljk` is **not** a unit test — it's
 an executable demo that makes real outbound HTTP JSON-RPC calls against a
 real public Sepolia endpoint (`eth_chainId`, `eth_blockNumber`,
 `eth_getBlockByNumber`, `eth_getBlockByHash`, `eth_getBalance`), proving a
@@ -155,7 +155,7 @@ manually:
 
 ```bash
 nbb --classpath "src:test:../kotobase/src:../kotobase-protocols/src" \
-  test/kotobase/ethereum/live_smoke_demo.cljs
+  test/kotobase/ethereum/live_smoke_demo.cljk
 ```
 
 Verified live 2026-07-17 against `https://ethereum-sepolia-rpc.publicnode.com`
