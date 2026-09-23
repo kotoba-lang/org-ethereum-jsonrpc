@@ -14,7 +14,7 @@
   undecoded (`input` calldata, `logsBloom`) are truncated in the fixture
   for readability — they were never subject to hex-quantity decoding, so
   truncating them doesn't weaken any assertion."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotobase.ethereum.rpc :as rpc]
             [kotobase.protocols.json :as json]))
 
