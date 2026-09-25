@@ -129,8 +129,15 @@ First-class runtime is **nbb/cljs** (repo-wide runtime priority):
 ```bash
 git clone https://github.com/kotoba-lang/kotobase ../kotobase
 git clone https://github.com/kotoba-lang/kotobase-protocols ../kotobase-protocols
-kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src" bin/run_tests.cljk
+git clone https://github.com/kotoba-lang/text ../text
+kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src:../text/src" bin/run_tests.cljk
 ```
+
+`../text` is required (`kotobase.ethereum.rpc` requires `kotoba.lang.text`);
+without it the run stops at `Could not find namespace: kotoba.lang.text`.
+[`docs/operator-quickstart.md`](docs/operator-quickstart.md) walks the whole
+path, with dependencies pinned to the `deps.edn` SHAs, the expected output of
+each step, and a check that the whitelist refuses a write method.
 
 `test/kotobase/ethereum/rpc_test.cljk` is pure-logic unit tests against
 **real fixture JSON** — every fixture in that file was captured live from a
@@ -154,7 +161,7 @@ transport demos live outside its deterministic test suite); run it
 manually:
 
 ```bash
-kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src" \
+kbb --backend sci --classpath "src:test:../kotobase/src:../kotobase-protocols/src:../text/src" \
   test/kotobase/ethereum/live_smoke_demo.cljk
 ```
 
